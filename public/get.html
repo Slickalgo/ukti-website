@@ -13,9 +13,9 @@
       shows both store pills + a helpful "open on your phone" note
 
   The page itself is tiny (no main.css dep, no Tailwind, no framework) so the
-  redirect fires fast and no-JS fallback still works. Store URLs come from
-  /config.js so the page stays in sync with the rest of the site when real
-  App Store / Play Store URLs replace the placeholders.
+  redirect fires fast and the no-JS fallback still works. Detection lives in
+  /platform.js and store URLs in /config.js, both shared with the main site, so
+  this page cannot drift from the hero CTAs it backs up.
 -->
 <html lang="en">
   <head>
@@ -96,35 +96,12 @@
       }
     </style>
 
+    <!-- Device-sniff + redirect. Fires immediately; the fallback UI below shows
+         only when the sniff is inconclusive (desktop / bot / private browsing).
+         Both files are external because the CSP forbids inline script. -->
     <script src="/config.js"></script>
-    <script>
-      // Device-sniff + redirect. Fires immediately; fallback UI below shows
-      // only when sniff is inconclusive (desktop / bot / private browsing).
-      (function () {
-        var cfg = window.UKTI_CONFIG || {};
-        var ua = (navigator.userAgent || "").toLowerCase();
-        var uaData = navigator.userAgentData;
-
-        var isIOS =
-          /iphone|ipad|ipod/i.test(ua) ||
-          // iPadOS 13+ identifies as Mac; double-check with touch capability
-          (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
-        var isAndroid = /android/i.test(ua);
-
-        // uaData.mobile is the modern hint; only trust if present
-        if (!isIOS && !isAndroid && uaData && uaData.mobile) {
-          var brand = (uaData.brands || []).map(function (b) { return (b.brand || "").toLowerCase(); }).join(" ");
-          if (brand.indexOf("android") >= 0) isAndroid = true;
-        }
-
-        if (isIOS && cfg.appStoreUrl) {
-          window.location.replace(cfg.appStoreUrl);
-        } else if (isAndroid && cfg.playStoreUrl) {
-          window.location.replace(cfg.playStoreUrl);
-        }
-        // Desktop / unknown: let the fallback UI render below.
-      })();
-    </script>
+    <script src="/platform.js"></script>
+    <script src="/get.js"></script>
   </head>
 
   <body>
@@ -138,7 +115,7 @@
       <div class="pills">
         <a
           class="pill"
-          href="https://apps.apple.com/app/ukti/id000000000"
+          href="https://apps.apple.com/app/id6782030430"
           rel="noopener"
           aria-label="Download on the App Store"
         >

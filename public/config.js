@@ -22,11 +22,12 @@ window.UKTI_CONFIG = {
   shortUrl: "https://ukti.io/get",
 
   /**
-   * Store URLs — source of truth for the device-detection redirect at /get.
-   * The HTML pills in index.html + how-it-works.html currently duplicate these
-   * strings; when real App Store / Play Store URLs are issued, update all
-   * three locations (the two HTML files + here) per the runbook.
+   * Store URLs — source of truth for every device-aware install path:
+   * the /get redirect (what the QR encodes) and the hero CTA routing in
+   * src/install.js. The static <a class="store-pill"> badges in index.html +
+   * how-it-works.html duplicate these strings as the no-JS fallback, so a URL
+   * change means updating those two files as well.
    */
-  appStoreUrl: "https://apps.apple.com/app/ukti/id000000000",
+  appStoreUrl: "https://apps.apple.com/app/id6782030430",
   playStoreUrl: "https://play.google.com/store/apps/details?id=io.ukti.app",
 };

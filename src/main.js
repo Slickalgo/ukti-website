@@ -4,6 +4,7 @@
 // - Stone-rail progress (Beat 2 + Beat 4) — ink fill grows as section enters viewport.
 // - Scroll-reveal — IntersectionObserver fade/translate, optional stagger groups.
 // - Desktop-only Lenis smooth scroll.
+// - Device-aware install CTAs — phones go to their store, desktop to the QR.
 // - Vercel Speed Insights (operational telemetry — Core Web Vitals only).
 // - Vercel Analytics (page views + visitor counts; no PII, no cross-site tracking).
 
@@ -12,6 +13,9 @@ import "lenis/dist/lenis.css";
 import Lenis from "lenis";
 import { injectSpeedInsights } from "@vercel/speed-insights";
 import { inject as injectAnalytics } from "@vercel/analytics";
+// Device-aware install CTAs. Must stay ahead of tracking.js: it rewrites the CTA
+// hrefs that tracking then stamps attribution params onto.
+import "./install.js";
 // Attribution: Meta Pixel loader (no-op until UKTI_CONFIG.metaPixelId is set)
 // + UTM preservation on store links. See docs/launch/pre-production-blockers.md §1.
 import "./tracking.js";

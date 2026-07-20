@@ -1176,13 +1176,36 @@ footer .footer-colophon {
     align-self: stretch !important;
   }
 
-  /* Beat 6 — hide tappable badges on desktop, show QR install handoff. */
+  /* Beat 6 — hide tappable badges on desktop, show QR install handoff.
+     Width is the no-JS proxy for "this is a desktop"; the data-platform rules
+     below refine it once platform.js has run. */
   #your-turn .badges {
     display: none;
   }
   #your-turn .qr-block {
     display: flex;
   }
+}
+
+/* Beat 6, device-aware. platform.js stamps data-platform on <html> before first
+   paint, which corrects the two cases the width proxy above gets wrong: a
+   half-screen desktop window (narrow, but cannot install — needs the QR) and a
+   landscape tablet (wide, but can install — needs tappable badges).
+   The attribute selector outranks the media-query rules on specificity, so
+   source order between them does not matter. */
+html[data-platform="desktop"] #your-turn .badges {
+  display: none;
+}
+html[data-platform="desktop"] #your-turn .qr-block {
+  display: flex;
+}
+html[data-platform="ios"] #your-turn .badges,
+html[data-platform="android"] #your-turn .badges {
+  display: flex;
+}
+html[data-platform="ios"] #your-turn .qr-block,
+html[data-platform="android"] #your-turn .qr-block {
+  display: none;
 }
 
 @media (min-width: 1440px) {

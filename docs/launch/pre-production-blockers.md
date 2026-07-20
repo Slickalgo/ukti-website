@@ -39,27 +39,31 @@ Each item below has placeholder infrastructure already wired into the repo — o
 
 ---
 
-## 🔴 2. App Store + Google Play URLs
+## 🟡 2. App Store + Google Play URLs
 
-**Status:** placeholder URLs in HTML anchors. Smart-banner meta references placeholder app-id.
+**Status:** real URLs wired in 2026-07-20. Both still return 404 until the apps are published.
 
-**Placeholders currently in code:**
-- iOS: `https://apps.apple.com/app/ukti/id000000000`
+**Live URLs in code:**
+- iOS: `https://apps.apple.com/app/id6782030430`
 - Android: `https://play.google.com/store/apps/details?id=io.ukti.app`
-- `apple-itunes-app` meta: `app-id=000000000`
+- `apple-itunes-app` meta: `app-id=6782030430`
 
-**What needs to happen:**
-- [ ] Submit iOS app to **App Store Connect** → Apple review → receive app ID + final `apps.apple.com/app/ukti/id<NUMBER>` URL
-- [ ] Submit Android app to **Google Play Console** → review → confirm final `play.google.com/store/apps/details?id=io.ukti.app` URL (package name already set)
-- [ ] Find-replace the two placeholder URLs across:
-  - `index.html` (two `<a class="store-pill">` anchors)
-  - `how-it-works.html` (two `<a class="store-pill">` anchors)
-  - `public/get.html` (device-detection redirect targets)
-  - `public/config.js` (optional, if we centralize URLs later)
-- [ ] Update `<meta name="apple-itunes-app" content="app-id=<NUMBER>">` in `index.html`
-- [ ] Deploy + test: scan QR on a phone, click each pill on desktop, verify correct store opens
+`public/config.js` is the source of truth. The `<a class="store-pill">` anchors in
+`index.html` + `how-it-works.html` + `public/get.html` duplicate the strings as the
+no-JS fallback, so a URL change means editing those three too.
 
-**Files to touch when ready:** `index.html`, `how-it-works.html`, `public/get.html`, `public/config.js`.
+**What still needs to happen:**
+- [ ] Publish iOS build → confirm `apps.apple.com/app/id6782030430` resolves (Apple's
+      `itunes.apple.com/lookup?id=6782030430` returns `resultCount: 0` while unreleased)
+- [ ] Publish Android build to production → confirm the Play URL resolves
+- [ ] Deploy + test on real devices: scan the QR from an iPhone and an Android phone,
+      tap both hero CTAs on each, and load the site on a desktop to confirm the QR shows
+
+**Device routing (built 2026-07-20):** `public/platform.js` detects the device and stamps
+`data-platform` on `<html>` before first paint. `src/install.js` points the two hero CTAs
+at the matching store on a phone and leaves the `#your-turn` jump in place on desktop;
+`src/style.css` swaps Beat 6 between badges and the QR off the same attribute.
+`public/get.js` runs the same detection at `/get`, which is what the QR encodes.
 
 ---
 

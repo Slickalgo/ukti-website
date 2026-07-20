@@ -12,9 +12,8 @@
 
     <!-- Smart App Banner — only mobile Safari reads this. Shows a discreet
          "OPEN IN APP / INSTALL" banner above the site when the user is on
-         iOS Safari. Placeholder app-id is swapped for real ID post-store-approval.
-         See docs/launch/pre-production-blockers.md §2. -->
-    <meta name="apple-itunes-app" content="app-id=000000000" />
+         iOS Safari. Inert until the app is live on the App Store. -->
+    <meta name="apple-itunes-app" content="app-id=6782030430" />
     <meta
       name="description"
       content="Ukti decides what you wear. One outfit a day, from what you already own."
@@ -65,6 +64,9 @@
          Synchronous script, loads before the deferred module so window.UKTI_CONFIG
          is available when tracking.js runs. Empty pixelId = no Pixel, no events. -->
     <script src="/config.js"></script>
+    <!-- Render-blocking on purpose: stamps data-platform on <html> before first
+         paint so Beat 6 never flashes badges on its way to the QR, or back. -->
+    <script src="/platform.js"></script>
 
     <!-- ─────────────────────────────────────────────────────────────── -->
     <!-- Critical CSS — above-the-fold tokens, base body, hero typography. -->
@@ -538,12 +540,12 @@
               data-stagger-group
               data-stagger-ms="120"
             >
-              <!-- TODO: replace with final URLs before launch.
-                   Apple's English Black lockup + Google Play's English badge.
-                   Full Apple locale kit (414 MB) lives at /brand-assets/apple-badge-kit/, gitignored. -->
+              <!-- Apple's English Black lockup + Google Play's English badge.
+                   Full Apple locale kit (414 MB) lives at /brand-assets/apple-badge-kit/, gitignored.
+                   These stay visible on phones; desktop swaps them for the QR below. -->
               <a
                 data-reveal
-                href="https://apps.apple.com/app/ukti/id000000000"
+                href="https://apps.apple.com/app/id6782030430"
                 class="store-pill"
                 rel="noopener"
                 aria-label="Download on the App Store"

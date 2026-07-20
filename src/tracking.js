@@ -11,9 +11,10 @@
  *   - Meta Pixel base snippet loads on first page load
  *   - PageView fires automatically
  *   - ViewContent fires when Beat 6 ("Your turn.") enters the viewport
- *   - Lead fires when either .store-pill anchor is clicked
- *   - UTM + fbclid query params are preserved onto both store-pill hrefs at
- *     load time (so attribution survives the App Store / Play Store bounce)
+ *   - Lead fires when any outbound store link is clicked — the Beat 6 badges and,
+ *     on a phone, the hero CTAs that install.js has pointed at the store
+ *   - UTM + fbclid query params are preserved onto those same hrefs at load time
+ *     (so attribution survives the App Store / Play Store bounce)
  *
  * See docs/launch/pre-production-blockers.md §1 for the Pixel provisioning
  * procedure.
@@ -21,6 +22,13 @@
 
 const cfg = window.UKTI_CONFIG || {};
 const pixelId = cfg.metaPixelId || "";
+
+/**
+ * Every outbound store link on the page: the static Beat 6 badges, plus any
+ * hero CTA that install.js has already rewritten into a direct store link for
+ * this device. Both carry attribution; both count as a Lead.
+ */
+const STORE_LINKS = ".store-pill, [data-store-link]";
 
 function initMetaPixel() {
   if (!pixelId) return;
@@ -62,7 +70,7 @@ function initMetaPixel() {
  */
 function attachStorePillTracking() {
   if (!pixelId) return;
-  document.querySelectorAll(".store-pill").forEach((el) => {
+  document.querySelectorAll(STORE_LINKS).forEach((el) => {
     el.addEventListener("click", () => {
       const label = el.getAttribute("aria-label") || "store-pill";
       window.fbq && window.fbq("track", "Lead", { content_name: label });
@@ -115,7 +123,7 @@ function preserveUtmOnStoreLinks() {
   }
   if ([...forward].length === 0) return;
 
-  document.querySelectorAll(".store-pill").forEach((el) => {
+  document.querySelectorAll(STORE_LINKS).forEach((el) => {
     try {
       const url = new URL(el.href);
       for (const [k, v] of forward) url.searchParams.set(k, v);

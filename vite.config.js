@@ -26,6 +26,10 @@ function cleanUrlMiddleware(req, _res, next) {
     req.url = "/press.html" + q;
     return next();
   }
+  if (url === "/support" || url === "/support/") {
+    req.url = "/support.html" + q;
+    return next();
+  }
   if (url === "/delete-account" || url === "/delete-account/") {
     req.url = "/delete-account.html" + q;
     return next();
@@ -67,6 +71,7 @@ export default defineConfig(() => {
           press: resolve(__dirname, "press.html"),
           privacy: resolve(__dirname, "privacy.html"),
           terms: resolve(__dirname, "terms.html"),
+          support: resolve(__dirname, "support.html"),
           "delete-account": resolve(__dirname, "delete-account.html"),
         },
       },

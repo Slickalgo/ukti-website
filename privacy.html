@@ -41,7 +41,7 @@
 
     <main id="main" class="legal-prose mx-auto px-6 py-16 sm:py-24" role="main">
       <p style="font-family: 'IBM Plex Mono',ui-monospace,monospace; font-size: var(--t-10); letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); margin-bottom: 1.5rem">
-        EFFECTIVE DATE: 22 APRIL 2026 · PRIVACY CONTACT:
+        EFFECTIVE DATE: 11 AUGUST 2026 · PRIVACY CONTACT:
         <a href="mailto:privacy@ukti.io">privacy@ukti.io</a>
       </p>
 
@@ -122,6 +122,24 @@
         </li>
       </ul>
 
+      <h3>Voice and audio</h3>
+      <ul>
+        <li>
+          <strong>Stylist conversations.</strong> When you start a spoken session, your microphone
+          audio streams from your device directly to Microsoft Azure OpenAI over an encrypted
+          connection. The audio does not pass through Ukti's servers and Ukti does not store it.
+          What Ukti keeps from the session is the written styling brief the conversation produced,
+          the session identifier, and session details such as length and how the session ended.
+          This is described further in Section 13.
+        </li>
+        <li>
+          <strong>Voice test recordings.</strong> The voice test in the Look tab records three
+          short takes from a recording screen you start yourself. The recordings are sent to Ukti,
+          measured in the same request, and discarded. Only the resulting numbers are kept. This is
+          described further in Section 13.
+        </li>
+      </ul>
+
       <h3>Usage, device, and diagnostic data</h3>
       <ul>
         <li>
@@ -159,8 +177,13 @@
           features, and deliver notifications you enable.
         </li>
         <li>
-          <strong>Operate styling features.</strong> Send prompts, images, and contextual data to
-          model providers to generate Ukti's daily call for you.
+          <strong>Operate styling features.</strong> Send prompts, images, speech, and contextual
+          data to model providers to generate Ukti's daily call for you.
+        </li>
+        <li>
+          <strong>Measure a voice test.</strong> When you take the voice test, measure the
+          recordings on Ukti's own servers to produce the voice numbers in your reading. The
+          recordings are discarded once measured.
         </li>
         <li>
           <strong>Improve and secure the services.</strong> Debug issues, monitor reliability,
@@ -203,8 +226,8 @@
           production.
         </li>
         <li>
-          <strong>AI model providers.</strong> Ukti sends prompts, images, and related context to
-          model providers to generate styling outputs. Those providers process data under their
+          <strong>AI model providers.</strong> Ukti sends prompts, images, speech, and related
+          context to model providers to generate styling outputs. Those providers process data under their
           terms and Ukti's instructions as processors where applicable.
         </li>
         <li>
@@ -234,7 +257,8 @@
       <p>
         As of the effective date above, the named processors in these categories are:
         <strong>Supabase</strong> (database, authentication, file storage),
-        <strong>OpenAI and Azure OpenAI</strong> (vision and language models),
+        <strong>OpenAI</strong> and <strong>Microsoft Azure OpenAI</strong> (vision, language, and
+        speech models; Azure OpenAI processes the audio of stylist conversations),
         <strong>Apple</strong> and <strong>Google</strong> (in-app subscription verification),
         <strong>Amazon SES</strong> (transactional email delivery),
         <strong>Cloudflare</strong> (CDN, DDoS protection, DNS),
@@ -264,6 +288,12 @@
         <li>
           <strong>Logs and telemetry</strong> are retained for up to <strong>twelve months</strong>,
           except longer retention for security investigations or legal obligations.
+        </li>
+        <li>
+          <strong>Audio</strong> is not retained by Ukti. Stylist-conversation audio is never
+          stored; voice-test recordings are discarded once measured. The styling brief a
+          conversation produces and the numbers a voice test produces are kept with your styling
+          content and follow the retention above.
         </li>
       </ul>
 
@@ -379,7 +409,47 @@
         share, export, or be evaluated against.
       </p>
 
-      <h2>13. United States (California and other states)</h2>
+      <h2>13. Voice and audio</h2>
+      <p>
+        Two Ukti features use your microphone. Both are described here in full. The microphone is
+        not used outside them.
+      </p>
+      <h3>Stylist conversations</h3>
+      <p>
+        When you start a spoken session, your microphone audio streams from your device directly to
+        <strong>Microsoft Azure OpenAI</strong> over an encrypted connection, authorized by a
+        short-lived credential Ukti issues for your account. The audio does not pass through Ukti's
+        servers. Ukti does not store the audio and does not use it to train models. Microsoft
+        processes the audio to run the conversation, and may store and review a sample of processed
+        content to detect misuse of the service, under its published Azure OpenAI terms.
+      </p>
+      <p>
+        What Ukti keeps from a session is the written styling brief the conversation produced, the
+        session identifier, and session details such as length and how the session ended. The brief
+        is stored with your account and is removed when you delete your account, as described in
+        Section 7. If you switch between speaking and typing mid-session, the written thread passes
+        through Ukti's servers so the conversation can continue; Ukti does not store it.
+      </p>
+      <p>
+        A spoken session runs only while the app is open. The microphone is active only for the
+        length of the session, and the session ends when you leave the app.
+      </p>
+      <h3>Voice test</h3>
+      <p>
+        The voice test in the Look tab records three short takes — ten seconds each — from a
+        recording screen you start yourself. The recordings are sent to Ukti, measured in the same
+        request, and discarded. No recording is written to storage or to Ukti's database, and no
+        recording is sent to a model provider. Only the resulting numbers are kept, with your
+        reading.
+      </p>
+      <h3>What Ukti does not do with audio</h3>
+      <p>
+        Ukti does not record you outside these two features. Ukti does not keep audio after a
+        session or a test. Ukti does not use your audio to train models. Ukti does not sell your
+        audio and does not share it for advertising.
+      </p>
+
+      <h2>14. United States (California and other states)</h2>
       <p>
         California residents may request the rights described in Section 6 and may ask once per
         calendar year about certain disclosures for direct marketing purposes. Ukti does not
@@ -387,14 +457,14 @@
         state law allows.
       </p>
 
-      <h2>14. Changes to this Policy</h2>
+      <h2>15. Changes to this Policy</h2>
       <p>
         Ukti updates this Policy when its practices change. The new version is posted on this page
         and the effective date is updated. For material changes, Ukti provides notice by email or
         in-app message where the law requires.
       </p>
 
-      <h2>15. Contact</h2>
+      <h2>16. Contact</h2>
       <p>
         Questions about this Policy:
         <a href="mailto:privacy@ukti.io">privacy@ukti.io</a><br />

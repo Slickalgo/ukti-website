@@ -1,34 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Pre-launch: this sitemap is disabled in practice via robots.txt (Disallow: /)
-  and the noindex/nofollow meta on every HTML page. It is kept in the repo so
-  launch day is a single flip — remove robots.txt Disallow, drop the noindex
-  metas, and the crawler lands here with the canonical URL list already built.
-  Do not add internal or unpublished URLs while the block is in place.
+  Canonical URL list for crawlers. Hosts here must match the rel="canonical"
+  on each page (apex ukti.io, no www) — a mismatch between the two is what
+  makes a first indexing pass pick the wrong host.
+  /get is deliberately absent: it is a noindex device-router, not a landing page.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ukti.io/</loc>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ukti.io/how-it-works</loc>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ukti.io/support</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>https://ukti.io/press</loc>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://ukti.io/delete-account</loc>
+    <lastmod>2026-08-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
     <loc>https://ukti.io/privacy</loc>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
     <loc>https://ukti.io/terms</loc>
+    <lastmod>2026-08-24</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>

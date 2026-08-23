@@ -1,0 +1,53 @@
+# Ukti
+
+> Ukti is a styling app that issues one outfit a day, built from the clothes you
+> already own. You add your closet; each morning Ukti picks a single look and
+> tells you why it works. There is no feed, no options carousel, and no ads —
+> one verdict, and a new one tomorrow.
+
+Ukti is available on iOS and Android. It is a product of Slickalgo Analytics LLP,
+made in Bangalore, established 2026.
+
+## What it does
+
+- **One outfit a day.** A single daily verdict styled from your own wardrobe, with
+  the reasoning behind it. It is replaced the next morning — there is no archive
+  of options to scroll.
+- **Your closet.** Photograph your clothes; Ukti styles from what is actually in
+  your wardrobe rather than from a catalogue.
+- **Your Look, read weekly.** A periodic reading of how you present, with a plan.
+- **Your skin, read weekly.** A skin analysis from a selfie, with a routine.
+- **A stylist that listens.** Talk to Ukti by voice or in writing to shape what it
+  knows about you.
+- **Shopping as curation.** Where Ukti suggests something you do not own, it links
+  out to retailers. Nothing is bought inside the app.
+
+## What it deliberately does not do
+
+- No social feed, no sharing, no follower counts, no trending.
+- No in-app purchasing of clothing — shopping links go out to retailers.
+- No infinite options: one outfit per day is the whole product.
+- No ads.
+
+## Access
+
+Ukti has a free tier and a paid membership. Pricing varies by country and store;
+the current price is shown in the app at purchase. Ukti is rated 18+.
+
+## Pages
+
+- [Home](https://ukti.io/): what Ukti is.
+- [How it works](https://ukti.io/how-it-works): the daily flow, start to finish.
+- [Get the app](https://ukti.io/get): device-aware link to the App Store or Google Play.
+- [Press](https://ukti.io/press): press contact and materials.
+- [Support](https://ukti.io/support): product issues — help@ukti.io.
+- [Privacy](https://ukti.io/privacy): what is collected and why.
+- [Terms](https://ukti.io/terms): terms of service.
+- [Delete account](https://ukti.io/delete-account): how to delete your account and data.
+
+## Contact
+
+- Support: help@ukti.io
+- Press: press@ukti.io
+- Privacy: privacy@ukti.io
+- Instagram: https://www.instagram.com/ukti.io/

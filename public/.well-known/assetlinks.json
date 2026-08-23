@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.ukti.app",
+      "sha256_cert_fingerprints": [
+        "B3:FB:BD:E5:61:3A:BC:03:AC:BA:7F:C2:40:7E:39:B3:3F:B1:2A:EF:A7:73:78:56:07:88:6C:BA:1D:00:F1:8C"
+      ]
+    }
+  }
+]

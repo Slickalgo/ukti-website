@@ -1,2 +1,57 @@
+# Ukti — https://ukti.io
+# Public launch. Search crawlers and AI answer engines are both welcome.
+
 User-agent: *
-Disallow: /
+Allow: /
+
+# --- AI / LLM crawlers -------------------------------------------------
+# Explicitly named so a future blanket-block template cannot silently
+# remove them. These power answer engines that cite Ukti to users.
+
+# OpenAI
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-SearchBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+# Google (Gemini / Vertex — separate from Googlebot's search crawl)
+User-agent: Google-Extended
+Allow: /
+
+# Apple (Siri / Apple Intelligence)
+User-agent: Applebot
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# Microsoft Copilot / Bing
+User-agent: bingbot
+Allow: /
+
+# Meta
+User-agent: meta-externalagent
+Allow: /
+
+# Common Crawl — feeds many downstream models
+User-agent: CCBot
+Allow: /
+
+Sitemap: https://ukti.io/sitemap.xml

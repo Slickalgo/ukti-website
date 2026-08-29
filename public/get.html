@@ -12,10 +12,16 @@
     - Anything else (desktop, bot, unknown) → stays on the page and
       shows both store pills + a helpful "open on your phone" note
 
+  Ad attribution (utm_* / fbclid / ct / pt) on the inbound URL is carried across
+  the store bounce by get.js — Apple as ct/pt, Google as `referrer`. Without that
+  every paid install arrives looking organic.
+
   The page itself is tiny (no main.css dep, no Tailwind, no framework) so the
-  redirect fires fast and the no-JS fallback still works. Detection lives in
-  /platform.js and store URLs in /config.js, both shared with the main site, so
-  this page cannot drift from the hero CTAs it backs up.
+  redirect fires fast and the no-JS fallback still works. Store URLs live in
+  /config.js, shared with the main site, so this page cannot drift from the hero
+  CTAs it backs up. Detection is inlined in get.js rather than pulled from
+  /platform.js: this page has no platform-conditional CSS, and the saved
+  render-blocking request matters inside an in-app browser on mobile data.
 -->
 <html lang="en">
   <head>
@@ -100,7 +106,6 @@
          only when the sniff is inconclusive (desktop / bot / private browsing).
          Both files are external because the CSP forbids inline script. -->
     <script src="/config.js"></script>
-    <script src="/platform.js"></script>
     <script src="/get.js"></script>
   </head>
 

@@ -21,6 +21,7 @@ Migrated from AWS Amplify on 2026-04-25.
 | Build output | `dist/` (set in `vercel.json` → `outputDirectory`) |
 | Install command | `npm install --no-audit --no-fund` (set in `vercel.json`) |
 | Build container | Vercel's native build infrastructure |
+| Security headers | `vercel.json` → `headers` (live source of truth) |
 | GitHub Actions | None — Vercel watches the repo natively |
 
 ## How it deploys
@@ -147,4 +148,17 @@ If you ever want to change build behavior, edit `vercel.json` — don't change i
 ```
 git log --diff-filter=D -- docs/deploy/amplify.md
 git show <commit>:docs/deploy/amplify.md
+```
+
+**Amplify-era `customHttp.yml`** (deleted 2026-08-29) — the Amplify Console
+custom-headers file. It described itself as the canonical source of truth, but it
+had not served a byte since the Vercel migration: the live headers come from the
+`headers` block in `vercel.json`. Editing it would have changed nothing in production.
+Its header set was verified equivalent before deletion (only intentional deltas:
+Vercel Analytics hosts in `script-src`/`connect-src`, HSTS raised 1y → 2y, and
+`data:` dropped from `font-src` — unused, all fonts are self-hosted `.woff2`).
+Retrievable via:
+```
+git log --diff-filter=D -- customHttp.yml
+git show <commit>:customHttp.yml
 ```

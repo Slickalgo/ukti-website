@@ -16,8 +16,8 @@ window.UKTI_CONFIG = {
 
   /**
    * Canonical short URL that the QR code encodes + desktop "→ INSTALL" text-link.
-   * Set once ukti.io custom domain is attached; until then, /get still works on
-   * the Amplify default domain but the QR code is harder to hand out.
+   * Also the destination every paid Meta ad points at, so it has to carry utm_* /
+   * fbclid through to the store — see public/get.js.
    */
   shortUrl: "https://ukti.io/get",
 

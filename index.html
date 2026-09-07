@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/logo-mark.svg" />
+    <!-- Icons are the real app icon, derived from the iOS 1024 slice by
+         scripts/build-app-icons.mjs — the tab matches the home screen. -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#F5F1EA" />
     <title>Ukti — One Outfit a Day, From the Closet You Own</title>
 
@@ -225,7 +230,9 @@
       "url": "https://ukti.io/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ukti.io/logo-mark.svg"
+        "url": "https://ukti.io/icon-512.png",
+        "width": 512,
+        "height": 512
       },
       "foundingDate": "2026",
       "address": {
@@ -269,6 +276,7 @@
       "applicationCategory": "LifestyleApplication",
       "operatingSystem": "iOS, Android",
       "url": "https://ukti.io/",
+      "image": "https://ukti.io/icon-512.png",
       "installUrl": "https://ukti.io/get",
       "downloadUrl": [
         "https://apps.apple.com/app/id6782030430",
@@ -667,6 +675,16 @@
               <li><a class="footer-link" href="/terms">TERMS</a></li>
               <li><a class="footer-link" href="/delete-account">DELETE</a></li>
               <li><a class="footer-link" href="/press">PRESS</a></li>
+              <!-- rel="me" corroborates the sameAs claim in the JSON-LD above. -->
+              <li>
+                <a
+                  class="footer-link"
+                  href="https://www.instagram.com/ukti.io/"
+                  target="_blank"
+                  rel="me noopener"
+                  >INSTAGRAM</a
+                >
+              </li>
             </ul>
           </nav>
         </div>

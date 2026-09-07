@@ -5,6 +5,16 @@
   "installCommand": "npm install --no-audit --no-fund",
   "framework": "vite",
   "cleanUrls": false,
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/get.html", "destination": "/get", "permanent": true },
+    { "source": "/how-it-works.html", "destination": "/how-it-works", "permanent": true },
+    { "source": "/press.html", "destination": "/press", "permanent": true },
+    { "source": "/privacy.html", "destination": "/privacy", "permanent": true },
+    { "source": "/terms.html", "destination": "/terms", "permanent": true },
+    { "source": "/support.html", "destination": "/support", "permanent": true },
+    { "source": "/delete-account.html", "destination": "/delete-account", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/get",

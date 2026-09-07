@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Ukti marketing site — editorial static surface.",
   "scripts": {
-    "prebuild": "node scripts/check-ad-invariants.mjs && node scripts/ensure-image-placeholders.mjs && node scripts/optimize-images.mjs && node scripts/build-og-cover.mjs && node scripts/build-qr.mjs",
+    "prebuild": "node scripts/check-ad-invariants.mjs && node scripts/check-seo-invariants.mjs && node scripts/ensure-image-placeholders.mjs && node scripts/optimize-images.mjs && node scripts/build-og-cover.mjs && node scripts/build-qr.mjs && node scripts/build-app-icons.mjs",
     "build": "npm run prebuild && vite build",
     "dev": "vite",
     "preview": "vite preview"

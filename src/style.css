@@ -1009,6 +1009,27 @@ footer .footer-links li + li::before {
   pointer-events: none;
 }
 
+/* Instagram glyph. Sized to the cap-height of the mono caps beside it so it
+   reads as one more item in the row rather than a badge dropped into it, and
+   drawn in currentColor so it inherits .footer-link's hover and focus states
+   instead of needing its own. */
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+}
+.footer-social svg {
+  display: block;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  /* The words beside it are uppercase, so their painted mass is the cap band,
+     which sits above the centre of their line box — the line box also reserves
+     descender space nothing in "PRIVACY · TERMS" ever uses. Centring the glyph
+     on its own box therefore leaves it riding ~3px high. Measured at 1280px:
+     glyph centre 4697.8 vs cap-band centre 4700.9. Nudged in em so it holds if
+     the footer type size changes. */
+  translate: 0 0.28em;
+}
+
 @media (min-width: 1024px) {
   footer .footer-row {
     flex-direction: row;
